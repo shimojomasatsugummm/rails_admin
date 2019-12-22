@@ -288,7 +288,7 @@ module RailsAdmin
         @total_columns_width = 697
         @sidescroll = nil
         @label_methods = [:name, :title]
-        @main_app_name = proc { [Rails.application.engine_name.titleize.chomp(' Application'), 'Admin'] }
+        @main_app_name = proc { [Jets.application.engine_name.titleize.chomp(' Application'), 'Admin'] }
         @registry = {}
         @show_gravatar = true
         @navigation_static_links = {}
@@ -337,7 +337,7 @@ module RailsAdmin
       def viable_models
         included_models.collect(&:to_s).presence || begin
           @@system_models ||= # memoization for tests
-            ([Rails.application] + Rails::Engine.subclasses.collect(&:instance)).flat_map do |app|
+            ([Jets.application] + Rails::Engine.subclasses.collect(&:instance)).flat_map do |app|
               (app.paths['app/models'].to_a + app.paths.eager_load).collect do |load_path|
                 Dir.glob(app.root.join(load_path)).collect do |load_dir|
                   Dir.glob(load_dir + '/**/*.rb').collect do |filename|
