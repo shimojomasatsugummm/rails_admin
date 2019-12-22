@@ -27,7 +27,7 @@ module RailsAdmin
     end
 
     initializer 'RailsAdmin reload config in development' do
-      if Rails.application.config.cache_classes
+      if Jets.application.config.cache_classes
         if defined?(ActiveSupport::Reloader)
           ActiveSupport::Reloader.before_class_unload do
             RailsAdmin::Config.reset_all_models

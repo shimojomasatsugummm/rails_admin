@@ -27,7 +27,7 @@ namespace :rails_admin do
       },
     }
 
-    filename = Rails.root.join('config/database.yml')
+    filename = Jets.root.join('config/database.yml')
 
     File.open(filename, 'w') do |f|
       f.write(configuration.to_yaml)

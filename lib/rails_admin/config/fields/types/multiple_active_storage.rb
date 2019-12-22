@@ -26,11 +26,11 @@ module RailsAdmin
               return nil unless value
               if thumb && value.variable?
                 variant = value.variant(thumb_method)
-                Rails.application.routes.url_helpers.rails_blob_representation_path(
+                Jets.application.routes.url_helpers.rails_blob_representation_path(
                   variant.blob.signed_id, variant.variation.key, variant.blob.filename, only_path: true
                 )
               else
-                Rails.application.routes.url_helpers.rails_blob_path(value, only_path: true)
+                Jets.application.routes.url_helpers.rails_blob_path(value, only_path: true)
               end
             end
           end
